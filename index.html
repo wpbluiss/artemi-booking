@@ -10,93 +10,96 @@
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
     :root {
-      --rose: #C4A882;
-      --rose-light: #E2D0B5;
-      --rose-dark: #8C7656;
-      --black: #0B0A09;
-      --black-light: #131210;
-      --black-card: #1B1918;
-      --gray: #7A7572;
-      --gray-light: #A8A19B;
-      --cream: #F5F0E8;
-      --accent: #D4A574;
+      --rose: #B76E79;
+      --rose-light: #D4A0A7;
+      --rose-dark: #8E4F58;
+      --gold: #C9A96E;
+      --gold-light: #DCC99C;
+      --bg: #FFF8F0;
+      --bg-alt: #FFF1E6;
+      --card: #FFFFFF;
+      --text: #2C2C2C;
+      --text-light: #6B6B6B;
+      --text-muted: #9A9A9A;
+      --border: rgba(183,110,121,0.12);
+      --shadow: 0 2px 20px rgba(44,44,44,0.06);
+      --shadow-hover: 0 8px 30px rgba(183,110,121,0.12);
       --font-heading: 'Playfair Display', serif;
-      --font-body: 'Raleway', sans-serif;
+      --font-body: 'Lato', sans-serif;
     }
 
     html { scroll-behavior: smooth; }
-    body { font-family: var(--font-body); background: var(--black); color: var(--cream); line-height: 1.6; }
+    body { font-family: var(--font-body); background: var(--bg); color: var(--text); line-height: 1.7; font-weight: 300; }
 
     /* ═══ HEADER ═══ */
     header {
       position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(11,10,9,0.92); backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(196,168,130,0.1);
-      padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between;
+      background: rgba(255,248,240,0.92); backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2.5rem; height: 72px; display: flex; align-items: center; justify-content: space-between;
     }
     .logo {
       font-family: var(--font-heading); font-size: 1.5rem; font-weight: 600;
-      color: var(--rose); letter-spacing: 0.12em; text-decoration: none;
+      color: var(--rose); letter-spacing: 0.1em; text-decoration: none;
     }
-    .logo span { font-weight: 400; font-style: italic; color: var(--gray-light); font-size: 0.85em; }
+    .logo span { font-weight: 400; font-style: italic; color: var(--text-muted); font-size: 0.82em; }
     nav { display: flex; gap: 1.8rem; align-items: center; }
     nav a {
-      color: var(--gray-light); text-decoration: none; font-size: 0.8rem; font-weight: 500;
-      letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.3s;
+      color: var(--text-light); text-decoration: none; font-size: 0.78rem; font-weight: 400;
+      letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.3s;
     }
     nav a:hover { color: var(--rose); }
     .btn-book {
-      background: linear-gradient(135deg, var(--rose), var(--accent));
-      color: var(--black); padding: 10px 24px; border-radius: 30px;
-      font-family: var(--font-body); font-weight: 600; font-size: 0.78rem;
+      background: var(--rose); color: #fff; padding: 10px 26px; border-radius: 30px;
+      font-family: var(--font-body); font-weight: 700; font-size: 0.75rem;
       letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
       transition: all 0.3s; border: none;
     }
-    .btn-book:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-book:hover { background: var(--rose-dark); transform: translateY(-1px); }
     .lang-toggle {
-      display: flex; gap: 0; border: 1px solid rgba(196,168,130,0.25); border-radius: 20px; overflow: hidden; font-size: 0.7rem;
+      display: flex; border: 1px solid var(--border); border-radius: 20px; overflow: hidden; font-size: 0.7rem;
     }
     .lang-toggle button {
-      background: transparent; border: none; color: var(--gray); padding: 4px 10px;
-      cursor: pointer; font-family: var(--font-body); font-weight: 600; transition: all 0.3s;
+      background: transparent; border: none; color: var(--text-muted); padding: 4px 10px;
+      cursor: pointer; font-family: var(--font-body); font-weight: 700; transition: all 0.3s;
     }
-    .lang-toggle button.active { background: var(--rose); color: var(--black); }
+    .lang-toggle button.active { background: var(--rose); color: #fff; }
 
     /* ═══ HERO ═══ */
     .hero {
       min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;
       text-align: center; padding: 2rem; position: relative; overflow: hidden;
-      background: linear-gradient(180deg, rgba(11,10,9,0.5) 0%, rgba(11,10,9,0.95) 100%),
-                  linear-gradient(135deg, #1a1714 0%, #0B0A09 100%);
+      background: linear-gradient(170deg, #FFF8F0 0%, #FFF1E6 40%, #FAE8DA 100%);
     }
     .hero::before {
-      content: ''; position: absolute; top: 40%; left: 50%; width: 700px; height: 700px;
-      background: radial-gradient(ellipse, rgba(196,168,130,0.06) 0%, transparent 70%);
-      transform: translate(-50%, -50%); pointer-events: none;
+      content: ''; position: absolute; top: -100px; right: -150px; width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(183,110,121,0.08) 0%, transparent 70%);
+      pointer-events: none;
     }
     .hero::after {
-      content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
-      background: linear-gradient(transparent, var(--black)); pointer-events: none;
+      content: ''; position: absolute; bottom: -100px; left: -100px; width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(201,169,110,0.06) 0%, transparent 70%);
+      pointer-events: none;
     }
     .hero-eyebrow {
-      font-family: var(--font-body); font-size: 0.78rem; font-weight: 600;
+      font-family: var(--font-body); font-size: 0.75rem; font-weight: 700;
       letter-spacing: 0.35em; text-transform: uppercase; color: var(--rose);
       margin-bottom: 1.5rem; position: relative;
     }
     .hero h1 {
       font-family: var(--font-heading); font-size: clamp(2.8rem, 7vw, 5rem);
-      font-weight: 600; color: var(--cream); letter-spacing: 0.05em;
+      font-weight: 600; color: var(--text); letter-spacing: 0.03em;
       margin-bottom: 0.3rem; position: relative; line-height: 1.15;
     }
     .hero h1 em { color: var(--rose); font-style: italic; }
     .hero .tagline {
-      font-family: var(--font-heading); font-size: clamp(1rem, 2.5vw, 1.3rem);
-      color: var(--gray-light); letter-spacing: 0.15em; text-transform: uppercase;
+      font-family: var(--font-heading); font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+      color: var(--text-light); letter-spacing: 0.2em; text-transform: uppercase;
       margin-bottom: 1rem; font-weight: 400;
     }
     .divider {
@@ -104,39 +107,38 @@
       background: linear-gradient(90deg, transparent, var(--rose), transparent);
     }
     .hero .subtitle {
-      font-size: 0.95rem; color: var(--gray); max-width: 480px; margin: 0 auto 2.5rem; line-height: 1.9;
-      font-weight: 300;
+      font-size: 1rem; color: var(--text-light); max-width: 480px; margin: 0 auto 2.5rem;
+      line-height: 1.9; font-weight: 300;
     }
     .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; position: relative; z-index: 1; }
     .btn-hero {
       padding: 15px 42px; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase;
-      font-family: var(--font-body); font-weight: 600; cursor: pointer;
+      font-family: var(--font-body); font-weight: 700; cursor: pointer;
       transition: all 0.3s; text-decoration: none; border: none;
     }
     .btn-primary {
-      background: linear-gradient(135deg, var(--rose), var(--accent));
-      color: var(--black); border-radius: 30px;
+      background: var(--rose); color: #fff; border-radius: 30px;
     }
-    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(196,168,130,0.2); }
+    .btn-primary:hover { background: var(--rose-dark); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
     .btn-outline-hero {
-      background: transparent; color: var(--rose); border: 1px solid rgba(196,168,130,0.3);
+      background: transparent; color: var(--rose); border: 1.5px solid var(--rose-light);
       border-radius: 30px;
     }
-    .btn-outline-hero:hover { background: rgba(196,168,130,0.1); border-color: var(--rose); }
+    .btn-outline-hero:hover { background: var(--rose); color: #fff; border-color: var(--rose); }
 
     /* ═══ SECTIONS ═══ */
     section { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
     .section-eyebrow {
-      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.3em; text-transform: uppercase;
-      color: var(--rose); text-align: center; margin-bottom: 0.8rem;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--rose); text-align: center; margin-bottom: 0.6rem;
     }
     .section-title {
       font-family: var(--font-heading); font-size: 2.4rem; font-weight: 600;
-      color: var(--cream); text-align: center; letter-spacing: 0.04em; margin-bottom: 0.5rem;
+      color: var(--text); text-align: center; letter-spacing: 0.02em; margin-bottom: 0.5rem;
     }
     .section-sub {
-      text-align: center; color: var(--gray); font-size: 0.88rem;
-      letter-spacing: 0.04em; margin-bottom: 3.5rem; font-weight: 300;
+      text-align: center; color: var(--text-muted); font-size: 0.92rem;
+      margin-bottom: 3.5rem; font-weight: 300;
     }
 
     /* ═══ SERVICES ═══ */
@@ -144,137 +146,144 @@
       display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem;
     }
     .service-card {
-      background: var(--black-card); border: 1px solid rgba(196,168,130,0.08);
-      padding: 1.6rem 1.8rem; border-radius: 10px; display: flex; justify-content: space-between;
-      align-items: center; transition: all 0.35s;
+      background: var(--card); border: 1px solid var(--border);
+      padding: 1.5rem 1.8rem; border-radius: 14px; display: flex; justify-content: space-between;
+      align-items: center; transition: all 0.35s; box-shadow: var(--shadow);
     }
-    .service-card:hover { border-color: rgba(196,168,130,0.3); transform: translateY(-2px); }
-    .service-name { font-size: 1rem; font-weight: 500; color: var(--cream); }
-    .service-note { font-size: 0.78rem; color: var(--gray); margin-top: 0.25rem; font-weight: 300; }
+    .service-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-hover); border-color: rgba(183,110,121,0.25); }
+    .service-name { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .service-note { font-size: 0.78rem; color: var(--text-muted); margin-top: 0.2rem; font-weight: 300; }
     .service-price {
-      font-family: var(--font-heading); font-size: 1.4rem; color: var(--rose); font-weight: 600;
+      font-family: var(--font-heading); font-size: 1.3rem; color: var(--rose); font-weight: 600;
       white-space: nowrap;
     }
     .service-card.featured {
-      border-color: rgba(196,168,130,0.2);
-      background: linear-gradient(135deg, rgba(196,168,130,0.06), rgba(212,165,116,0.03));
+      border-color: rgba(183,110,121,0.2);
+      background: linear-gradient(135deg, #FFFFFF 0%, #FFF5EE 100%);
     }
-    .service-card.featured .service-name { color: var(--rose-light); }
+    .service-card.featured .service-name { color: var(--rose-dark); }
 
     /* ═══ ABOUT ═══ */
+    .about-section { background: var(--bg-alt); padding: 6rem 2rem; margin: 0; max-width: none; }
+    .about-inner { max-width: 1100px; margin: 0 auto; }
     .about-content {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 3.5rem; align-items: center;
     }
     .about-text h3 {
-      font-family: var(--font-heading); font-size: 1.8rem; color: var(--cream);
-      margin-bottom: 1rem; line-height: 1.3;
+      font-family: var(--font-heading); font-size: 1.8rem; color: var(--text);
+      margin-bottom: 1rem; line-height: 1.35;
     }
     .about-text h3 em { color: var(--rose); }
     .about-text p {
-      color: var(--gray-light); font-size: 0.92rem; line-height: 1.9; font-weight: 300;
+      color: var(--text-light); font-size: 0.92rem; line-height: 1.9; font-weight: 300;
       margin-bottom: 1rem;
     }
     .about-image {
-      aspect-ratio: 4/5; background: var(--black-card); border-radius: 12px;
-      border: 1px solid rgba(196,168,130,0.1); overflow: hidden;
+      aspect-ratio: 4/5; background: var(--card); border-radius: 16px;
+      border: 1px solid var(--border); overflow: hidden; box-shadow: var(--shadow);
       display: flex; align-items: center; justify-content: center;
     }
     .about-image-placeholder {
-      color: var(--gray); font-size: 0.85rem; text-align: center; padding: 2rem;
+      color: var(--text-muted); font-size: 0.85rem; text-align: center; padding: 2rem;
     }
 
     /* ═══ BOOKING ═══ */
+    .booking-section-wrap { background: var(--bg-alt); padding: 6rem 2rem; margin: 0; max-width: none; }
+    .booking-section-inner { max-width: 1100px; margin: 0 auto; }
     #booking-section {
-      background: var(--black-light); border-radius: 16px; padding: 3.5rem;
-      border: 1px solid rgba(196,168,130,0.08); max-width: 700px; margin: 0 auto;
+      background: var(--card); border-radius: 20px; padding: 3.5rem;
+      border: 1px solid var(--border); max-width: 700px; margin: 0 auto;
+      box-shadow: var(--shadow);
     }
     .booking-form { max-width: 550px; margin: 0 auto; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
     .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
     .form-group.full { grid-column: 1 / -1; }
     label {
-      font-size: 0.75rem; color: var(--gray-light); letter-spacing: 0.08em;
-      text-transform: uppercase; font-weight: 500;
+      font-size: 0.72rem; color: var(--text-light); letter-spacing: 0.1em;
+      text-transform: uppercase; font-weight: 700;
     }
     input, select, textarea {
-      background: var(--black); border: 1px solid rgba(196,168,130,0.15); color: var(--cream);
-      padding: 13px 16px; border-radius: 8px; font-family: var(--font-body); font-size: 0.92rem;
+      background: var(--bg); border: 1px solid rgba(183,110,121,0.15); color: var(--text);
+      padding: 13px 16px; border-radius: 10px; font-family: var(--font-body); font-size: 0.92rem;
       transition: border-color 0.3s; outline: none; font-weight: 300;
     }
-    input:focus, select:focus, textarea:focus { border-color: var(--rose); }
-    select option { background: var(--black); color: var(--cream); }
+    input:focus, select:focus, textarea:focus { border-color: var(--rose); box-shadow: 0 0 0 3px rgba(183,110,121,0.08); }
+    input::placeholder, textarea::placeholder { color: var(--text-muted); }
+    select option { background: var(--bg); color: var(--text); }
     textarea { resize: vertical; min-height: 80px; }
     .btn-submit {
       width: 100%; padding: 16px;
-      background: linear-gradient(135deg, var(--rose), var(--accent));
-      color: var(--black); border: none; border-radius: 30px;
-      font-family: var(--font-body); font-weight: 700; font-size: 0.95rem;
-      letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer;
+      background: var(--rose); color: #fff;
+      border: none; border-radius: 30px;
+      font-family: var(--font-body); font-weight: 700; font-size: 0.92rem;
+      letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
       transition: all 0.3s; margin-top: 0.8rem;
     }
-    .btn-submit:hover { opacity: 0.9; transform: translateY(-1px); box-shadow: 0 8px 30px rgba(196,168,130,0.2); }
+    .btn-submit:hover { background: var(--rose-dark); transform: translateY(-1px); box-shadow: var(--shadow-hover); }
     .btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
     #booking-status {
-      text-align: center; margin-top: 1rem; padding: 1rem; border-radius: 8px;
+      text-align: center; margin-top: 1rem; padding: 1rem; border-radius: 10px;
       display: none; font-size: 0.88rem;
     }
-    #booking-status.success { display: block; background: rgba(16,185,129,0.1); color: #10b981; border: 1px solid rgba(16,185,129,0.15); }
-    #booking-status.error { display: block; background: rgba(239,68,68,0.1); color: #ef4444; border: 1px solid rgba(239,68,68,0.15); }
-    .payment-methods {
-      margin-top: 2rem; text-align: center;
-    }
+    #booking-status.success { display: block; background: rgba(16,185,129,0.08); color: #059669; border: 1px solid rgba(16,185,129,0.15); }
+    #booking-status.error { display: block; background: rgba(239,68,68,0.08); color: #dc2626; border: 1px solid rgba(239,68,68,0.12); }
+    .payment-methods { margin-top: 2rem; text-align: center; }
     .payment-methods p {
       font-family: var(--font-heading); font-size: 1rem; color: var(--rose);
-      letter-spacing: 0.06em; margin-bottom: 0.8rem;
+      margin-bottom: 0.8rem;
     }
-    .payment-badges { display: flex; flex-wrap: wrap; gap: 0.6rem; justify-content: center; }
+    .payment-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; justify-content: center; }
     .payment-badges span {
-      background: var(--black-card); border: 1px solid rgba(196,168,130,0.1);
-      padding: 6px 16px; border-radius: 20px; font-size: 0.78rem; color: var(--gray-light);
+      background: var(--bg); border: 1px solid var(--border);
+      padding: 5px 14px; border-radius: 20px; font-size: 0.75rem; color: var(--text-light); font-weight: 400;
     }
 
     /* ═══ GALLERY ═══ */
     .gallery-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
     }
     .gallery-item {
-      aspect-ratio: 1; background: var(--black-card); border-radius: 10px; overflow: hidden;
-      position: relative; border: 1px solid rgba(196,168,130,0.06); transition: transform 0.3s;
+      aspect-ratio: 1; background: var(--card); border-radius: 14px; overflow: hidden;
+      position: relative; border: 1px solid var(--border); transition: all 0.3s;
+      box-shadow: var(--shadow);
     }
-    .gallery-item:hover { transform: scale(1.02); }
+    .gallery-item:hover { transform: scale(1.02); box-shadow: var(--shadow-hover); }
     .gallery-item img { width: 100%; height: 100%; object-fit: cover; }
     .gallery-placeholder {
       width: 100%; height: 100%; display: flex; flex-direction: column;
       align-items: center; justify-content: center; gap: 0.5rem;
-      background: linear-gradient(135deg, #1B1918, #151311); color: var(--gray);
+      background: linear-gradient(135deg, #FFFFFF, #FFF5EE); color: var(--text-muted);
       font-size: 0.78rem; text-align: center; padding: 1rem;
     }
 
     /* ═══ REVIEWS ═══ */
-    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+    .reviews-section { background: var(--bg-alt); padding: 6rem 2rem; margin: 0; max-width: none; }
+    .reviews-inner { max-width: 1100px; margin: 0 auto; }
+    .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.2rem; }
     .review-card {
-      background: var(--black-card); border: 1px solid rgba(196,168,130,0.08);
-      padding: 2rem; border-radius: 12px; transition: border-color 0.3s;
+      background: var(--card); border: 1px solid var(--border);
+      padding: 2rem; border-radius: 16px; box-shadow: var(--shadow); transition: all 0.3s;
     }
-    .review-card:hover { border-color: rgba(196,168,130,0.2); }
-    .review-stars { color: var(--rose); font-size: 0.9rem; margin-bottom: 1rem; letter-spacing: 0.15em; }
+    .review-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+    .review-stars { color: var(--gold); font-size: 0.95rem; margin-bottom: 1rem; letter-spacing: 0.12em; }
     .review-text {
-      font-size: 0.88rem; color: var(--gray-light); line-height: 1.8;
+      font-size: 0.9rem; color: var(--text-light); line-height: 1.8;
       margin-bottom: 1rem; font-style: italic; font-weight: 300;
     }
-    .review-author { font-size: 0.78rem; color: var(--gray); font-weight: 500; }
+    .review-author { font-size: 0.78rem; color: var(--text-muted); font-weight: 700; letter-spacing: 0.05em; }
 
     /* ═══ CONTACT ═══ */
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
-    .contact-info { line-height: 2.2; }
-    .contact-info strong { color: var(--rose); font-weight: 500; }
-    .contact-info a { color: var(--rose-light); text-decoration: none; transition: color 0.3s; }
+    .contact-info { line-height: 2.2; font-size: 0.95rem; }
+    .contact-info strong { color: var(--rose); font-weight: 700; }
+    .contact-info a { color: var(--rose-dark); text-decoration: none; transition: color 0.3s; }
     .contact-info a:hover { color: var(--rose); }
 
     /* ═══ FOOTER ═══ */
     footer {
-      text-align: center; padding: 2.5rem 2rem; border-top: 1px solid rgba(196,168,130,0.08);
-      font-size: 0.75rem; color: var(--gray);
+      text-align: center; padding: 3rem 2rem; border-top: 1px solid var(--border);
+      font-size: 0.75rem; color: var(--text-muted); background: var(--bg);
     }
     footer a { color: var(--rose-dark); text-decoration: none; }
 
@@ -284,22 +293,20 @@
       .hamburger { display: block; }
       nav {
         display: none; position: fixed; top: 72px; left: 0; right: 0;
-        background: rgba(11,10,9,0.98); backdrop-filter: blur(20px);
+        background: rgba(255,248,240,0.98); backdrop-filter: blur(20px);
         flex-direction: column; padding: 1.5rem 2rem 2rem; gap: 1.2rem;
-        border-bottom: 1px solid rgba(196,168,130,0.1); z-index: 99;
+        border-bottom: 1px solid var(--border); z-index: 99;
       }
       nav.open { display: flex; }
-      nav a { font-size: 0.95rem; }
+      nav a { font-size: 0.92rem; }
       .form-row { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
       .about-content { grid-template-columns: 1fr; }
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
       header { padding: 0 1rem; }
       section { padding: 4rem 1.2rem; }
-      #booking-section { padding: 2rem 1.2rem; border-radius: 12px; }
-    }
-    @media (max-width: 480px) {
-      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .about-section, .booking-section-wrap, .reviews-section { padding: 4rem 1.2rem; }
+      #booking-section { padding: 2rem 1.5rem; }
     }
   </style>
 </head>
@@ -402,92 +409,96 @@
 </section>
 
 <!-- ABOUT -->
-<section id="about">
-  <p class="section-eyebrow" data-i18n="about_eyebrow">El Artista</p>
-  <h2 class="section-title" data-i18n="about_title">Conoce a Arturo</h2>
-  <p class="section-sub" data-i18n="about_sub">Mas de una decada de experiencia transformando miradas</p>
-  <div class="about-content">
-    <div class="about-text">
-      <h3 data-i18n="about_heading">Donde la <em>vision artistica</em> se encuentra con la precision tecnica</h3>
-      <p data-i18n="about_p1">Carlos Arturo Cardona — conocido como Arturo — es un estilista colombiano con mas de 15 anos de experiencia en colorimetria, diseno de imagen y maquillaje profesional.</p>
-      <p data-i18n="about_p2">Formado en las mejores academias de Colombia y con experiencia internacional, Arturo trae una perspectiva unica que combina las tendencias globales con un toque latinoamericano inconfundible.</p>
-      <p data-i18n="about_p3">En Artemi, cada cliente recibe una experiencia completamente personalizada. No hay formulas — solo arte.</p>
-    </div>
-    <div class="about-image">
-      <div class="about-image-placeholder">
-        <svg width="48" height="48" fill="none" stroke="var(--gray)" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-        <p style="margin-top:0.8rem;font-size:0.75rem;color:var(--gray)">Foto de Arturo<br><small style="color:var(--rose-dark)">Proximamente</small></p>
+<div class="about-section" id="about">
+  <div class="about-inner">
+    <p class="section-eyebrow" data-i18n="about_eyebrow">El Artista</p>
+    <h2 class="section-title" data-i18n="about_title">Conoce a Arturo</h2>
+    <p class="section-sub" data-i18n="about_sub">Mas de una decada de experiencia transformando miradas</p>
+    <div class="about-content">
+      <div class="about-text">
+        <h3 data-i18n="about_heading">Donde la <em>vision artistica</em> se encuentra con la precision tecnica</h3>
+        <p data-i18n="about_p1">Carlos Arturo Cardona — conocido como Arturo — es un estilista colombiano con mas de 15 anos de experiencia en colorimetria, diseno de imagen y maquillaje profesional.</p>
+        <p data-i18n="about_p2">Formado en las mejores academias de Colombia y con experiencia internacional, Arturo trae una perspectiva unica que combina las tendencias globales con un toque latinoamericano inconfundible.</p>
+        <p data-i18n="about_p3">En Artemi, cada cliente recibe una experiencia completamente personalizada. No hay formulas — solo arte.</p>
+      </div>
+      <div class="about-image">
+        <div class="about-image-placeholder">
+          <svg width="48" height="48" fill="none" stroke="var(--text-muted)" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+          <p style="margin-top:0.8rem;font-size:0.75rem;color:var(--text-muted)">Foto de Arturo<br><small style="color:var(--rose-light)">Proximamente</small></p>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- BOOKING -->
-<section>
-  <div id="booking-section">
-    <p class="section-eyebrow" data-i18n="book_eyebrow">Reservaciones</p>
-    <h2 class="section-title" style="margin-bottom:0.3rem" data-i18n="book_title">Reserva Tu Cita</h2>
-    <p class="section-sub" data-i18n="book_sub">Disponible 24/7 — Selecciona tu horario</p>
+<div class="booking-section-wrap" id="booking">
+  <div class="booking-section-inner">
+    <div id="booking-section">
+      <p class="section-eyebrow" data-i18n="book_eyebrow">Reservaciones</p>
+      <h2 class="section-title" style="margin-bottom:0.3rem" data-i18n="book_title">Reserva Tu Cita</h2>
+      <p class="section-sub" data-i18n="book_sub">Disponible 24/7 — Selecciona tu horario</p>
 
-    <form class="booking-form" id="bookingForm" onsubmit="handleBooking(event)">
-      <div class="form-row">
-        <div class="form-group">
-          <label data-i18n="form_name">Tu Nombre</label>
-          <input type="text" name="name" required placeholder="Nombre completo">
+      <form class="booking-form" id="bookingForm" onsubmit="handleBooking(event)">
+        <div class="form-row">
+          <div class="form-group">
+            <label data-i18n="form_name">Tu Nombre</label>
+            <input type="text" name="name" required placeholder="Nombre completo">
+          </div>
+          <div class="form-group">
+            <label data-i18n="form_phone">Telefono</label>
+            <input type="tel" name="phone" required placeholder="(555) 123-4567">
+          </div>
         </div>
-        <div class="form-group">
-          <label data-i18n="form_phone">Telefono</label>
-          <input type="tel" name="phone" required placeholder="(555) 123-4567">
+        <div class="form-row">
+          <div class="form-group">
+            <label data-i18n="form_service">Servicio</label>
+            <select name="service" required id="serviceSelect">
+              <option value="">Selecciona un servicio</option>
+              <option value="Balayage (desde $150)">Balayage</option>
+              <option value="Highlights (desde $120)">Highlights</option>
+              <option value="Color Completo (desde $90)">Color Completo</option>
+              <option value="Maquillaje Profesional (desde $80)">Maquillaje Profesional</option>
+              <option value="Diseno de Imagen (desde $200)">Diseno de Imagen</option>
+              <option value="Corte & Estilo (desde $60)">Corte & Estilo</option>
+              <option value="Tratamientos Capilares (desde $100)">Tratamientos Capilares</option>
+              <option value="Paquete Novia (consultar)">Paquete Novia</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-i18n="form_date">Fecha Preferida</label>
+            <input type="date" name="date" required id="bookingDate">
+          </div>
         </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label data-i18n="form_service">Servicio</label>
-          <select name="service" required id="serviceSelect">
-            <option value="">Selecciona un servicio</option>
-            <option value="Balayage (desde $150)">Balayage</option>
-            <option value="Highlights (desde $120)">Highlights</option>
-            <option value="Color Completo (desde $90)">Color Completo</option>
-            <option value="Maquillaje Profesional (desde $80)">Maquillaje Profesional</option>
-            <option value="Diseno de Imagen (desde $200)">Diseno de Imagen</option>
-            <option value="Corte & Estilo (desde $60)">Corte & Estilo</option>
-            <option value="Tratamientos Capilares (desde $100)">Tratamientos Capilares</option>
-            <option value="Paquete Novia (consultar)">Paquete Novia</option>
-          </select>
+        <div class="form-row">
+          <div class="form-group">
+            <label data-i18n="form_time">Hora Preferida</label>
+            <select name="time" required id="bookingTime">
+              <option value="">Selecciona hora</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label data-i18n="form_email">Email (opcional)</label>
+            <input type="email" name="email" placeholder="Para confirmacion">
+          </div>
         </div>
-        <div class="form-group">
-          <label data-i18n="form_date">Fecha Preferida</label>
-          <input type="date" name="date" required id="bookingDate">
+        <div class="form-group full" style="margin-bottom:1rem">
+          <label data-i18n="form_notes">Notas (opcional)</label>
+          <textarea name="notes" placeholder="Describe lo que buscas, fotos de referencia, etc..."></textarea>
         </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label data-i18n="form_time">Hora Preferida</label>
-          <select name="time" required id="bookingTime">
-            <option value="">Selecciona hora</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label data-i18n="form_email">Email (opcional)</label>
-          <input type="email" name="email" placeholder="Para confirmacion">
-        </div>
-      </div>
-      <div class="form-group full" style="margin-bottom:1rem">
-        <label data-i18n="form_notes">Notas (opcional)</label>
-        <textarea name="notes" placeholder="Describe lo que buscas, fotos de referencia, etc..."></textarea>
-      </div>
-      <button type="submit" class="btn-submit" id="submitBtn" data-i18n="form_submit">Solicitar Cita</button>
-    </form>
-    <div id="booking-status"></div>
+        <button type="submit" class="btn-submit" id="submitBtn" data-i18n="form_submit">Solicitar Cita</button>
+      </form>
+      <div id="booking-status"></div>
 
-    <div class="payment-methods">
-      <p data-i18n="pay_title">Metodos de Pago</p>
-      <div class="payment-badges">
-        <span>Zelle</span><span>Apple Pay</span><span>Cash App</span><span>Visa</span><span>Mastercard</span>
+      <div class="payment-methods">
+        <p data-i18n="pay_title">Metodos de Pago</p>
+        <div class="payment-badges">
+          <span>Zelle</span><span>Apple Pay</span><span>Cash App</span><span>Visa</span><span>Mastercard</span>
+        </div>
       </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- GALLERY -->
 <section id="gallery">
@@ -498,9 +509,8 @@
   <script>
   (function(){
     var grid = document.getElementById('galleryGrid');
-    var placeholder = '<div class="gallery-item"><div class="gallery-placeholder"><svg width="36" height="36" fill="none" stroke="var(--gray)" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Proximamente</span></div></div>';
+    var placeholder = '<div class="gallery-item"><div class="gallery-placeholder"><svg width="36" height="36" fill="none" stroke="#C0B0A0" stroke-width="1.2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg><span>Proximamente</span></div></div>';
     function showPlaceholders() { grid.innerHTML = placeholder+placeholder+placeholder+placeholder+placeholder+placeholder; }
-    // TODO: Replace client_id with Arturo's when onboarded in Supabase
     fetch('https://mvuslmfjkkuizixjpkgl.supabase.co/rest/v1/gallery_photos?client_id=eq.artemi&order=display_order.asc', {
       headers: { 'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im12dXNsbWZqa2t1aXppeGpwa2dsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk0NzYyMDksImV4cCI6MjA4NTA1MjIwOX0.N2KDxKd_9cJNDS7B9szyA3Gkz8a-WrH14jfRciwrAX0' }
     }).then(function(r){ return r.json(); }).then(function(photos){
@@ -515,33 +525,35 @@
   })();
   </script>
   <p style="text-align:center;margin-top:1.5rem;font-size:0.85rem">
-    <a href="https://instagram.com/artemihairandmakeup" target="_blank" style="color:var(--gray);text-decoration:none;transition:color 0.3s" onmouseover="this.style.color='var(--rose)'" onmouseout="this.style.color='var(--gray)'">Ver mas en Instagram @artemihairandmakeup</a>
+    <a href="https://instagram.com/artemihairandmakeup" target="_blank" style="color:var(--text-muted);text-decoration:none;transition:color 0.3s" onmouseover="this.style.color='var(--rose)'" onmouseout="this.style.color='var(--text-muted)'">Ver mas en Instagram @artemihairandmakeup</a>
   </p>
 </section>
 
 <!-- REVIEWS -->
-<section id="reviews">
-  <p class="section-eyebrow" data-i18n="rev_eyebrow">Testimonios</p>
-  <h2 class="section-title" data-i18n="rev_title">Lo Que Dicen Nuestras Clientes</h2>
-  <p class="section-sub" data-i18n="rev_sub">Experiencias reales de clientes reales</p>
-  <div class="reviews-grid">
-    <div class="review-card">
-      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="review-text">"Arturo es un artista. Mi balayage quedo exactamente como lo sone. La mejor experiencia de salon que he tenido en Florida."</p>
-      <div class="review-author">- Valentina M.</div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="review-text">"Me hizo el maquillaje para mi boda y recibi tantos cumplidos. Profesional, puntual y con un ojo increible para los detalles."</p>
-      <div class="review-author">- Carolina S.</div>
-    </div>
-    <div class="review-card">
-      <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-      <p class="review-text">"Llevaba anos buscando alguien que entendiera mi tipo de cabello. Arturo lo entendio desde la primera cita. No voy a otro salon."</p>
-      <div class="review-author">- Marcela R.</div>
+<div class="reviews-section" id="reviews">
+  <div class="reviews-inner">
+    <p class="section-eyebrow" data-i18n="rev_eyebrow">Testimonios</p>
+    <h2 class="section-title" data-i18n="rev_title">Lo Que Dicen Nuestras Clientes</h2>
+    <p class="section-sub" data-i18n="rev_sub">Experiencias reales de clientes reales</p>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Arturo es un artista. Mi balayage quedo exactamente como lo sone. La mejor experiencia de salon que he tenido en Florida."</p>
+        <div class="review-author">— Valentina M.</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Me hizo el maquillaje para mi boda y recibi tantos cumplidos. Profesional, puntual y con un ojo increible para los detalles."</p>
+        <div class="review-author">— Carolina S.</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Llevaba anos buscando alguien que entendiera mi tipo de cabello. Arturo lo entendio desde la primera cita. No voy a otro salon."</p>
+        <div class="review-author">— Marcela R.</div>
+      </div>
     </div>
   </div>
-</section>
+</div>
 
 <!-- CONTACT -->
 <section id="contact">
@@ -554,7 +566,7 @@
       <p><strong data-i18n="contact_phone_label">Telefono:</strong> <a href="tel:+12392451289">(239) 245-1289</a></p>
       <p><strong>Instagram:</strong> <a href="https://instagram.com/artemihairandmakeup" target="_blank">@artemihairandmakeup</a></p>
       <p><strong data-i18n="contact_booking_label">Reservas:</strong> <a href="#booking" data-i18n="contact_booking_link">Reserva en linea 24/7</a></p>
-      <p style="margin-top:1.2rem; color:var(--gray); font-size:0.82rem;" data-i18n="contact_appt">Solo con cita. Consultas gratuitas disponibles.</p>
+      <p style="margin-top:1.2rem; color:var(--text-muted); font-size:0.82rem;" data-i18n="contact_appt">Solo con cita. Consultas gratuitas disponibles.</p>
     </div>
     <div style="text-align:center;">
       <a href="#booking" class="btn-hero btn-primary" style="display:inline-block;" data-i18n="contact_cta">Reserva Tu Cita</a>
@@ -564,7 +576,7 @@
 
 <!-- FOOTER -->
 <footer>
-  <p style="font-family:var(--font-heading);font-size:1.1rem;color:var(--rose);letter-spacing:0.1em;margin-bottom:0.6rem">ARTEMI</p>
+  <p style="font-family:var(--font-heading);font-size:1.2rem;color:var(--rose);letter-spacing:0.1em;margin-bottom:0.5rem">ARTEMI</p>
   <p>West Palm Beach, Florida</p>
   <p style="margin-top:0.4rem">&copy; 2026 Artemi Hair & Makeup. All rights reserved.</p>
   <p style="margin-top:0.3rem;">Website by <a href="https://conduitai.io" target="_blank">Conduit AI</a></p>
@@ -613,7 +625,6 @@ async function handleBooking(e) {
   };
 
   try {
-    // Save to Supabase — uses artemi client_id (will be set when onboarded)
     await fetch('https://mvuslmfjkkuizixjpkgl.supabase.co/rest/v1/appointments', {
       method: 'POST',
       headers: {
